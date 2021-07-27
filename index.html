@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+            crossorigin="anonymous"
+        />
+        <title>公司名称</title>
+        <style>
+            body {
+                font-family: cursive;
+            }
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+            .show {
+                display: none;
+            }
+            .st-content__img {
+                width: 100%;
+            }
+
+            .st-btn-wrapper {
+                padding: 10px;
+                line-height: 40px;
+                display: inline-block;
+            }
+            .st-btn {
+                display: inline-block;
+                /* padding: 10px; */
+                padding: 0 10px;
+                text-decoration: none;
+                border: 1px solid #0062cc;
+                background: #0062cc;
+                color: #fff;
+                transition: 0.4s;
+                font-size: 15px;
+                font-weight: 500;
+                border-radius: 3px;
+            }
+            /* .st-btn:not(:first-of-type) {
+                margin-left: 20px;
+            } */
+
+            .st-btn:hover {
+                border: 1px solid #0062cc;
+                background: transparent;
+                color: #0062cc;
+                transition: 0.4s;
+            }
+
+            .st-btn:active {
+                border: 1px solid #e6d00f;
+                transition: 0.4s;
+            }
+            .st-header {
+                padding: 10px;
+                position: sticky;
+                top: 0;
+                background-color: white;
+                /* box-shadow: 0px 0px 3px #ddd, -2px -2px 3px #ddd; */
+                z-index: 1000;
+            }
+            .st-header-content {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                /* max-width: 1120px; */
+                margin: auto;
+            }
+            .st-logo {
+                height: 70px;
+            }
+            .st-link-group {
+                margin-left: 40px;
+                flex: 1;
+                text-align: right;
+            }
+            .st-banner {
+                position: relative;
+            }
+            .st-banner img {
+                width: 100%;
+                height: auto;
+            }
+
+            .st-banner .banner-text {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                color: white;
+                text-shadow: 0px 0px 8px #0dcaf0;
+            }
+            .st-banner .banner-text .banner-name {
+                font-size: 30px;
+                font-weight: bold;
+            }
+            .st-banner .banner-text .banner-slogan {
+                font-size: 20px;
+            }
+
+            .st-content {
+                padding-top: 20px;
+            }
+            .st-about-us {
+                position: relative;
+            }
+            .st-about-us .st-content-text {
+                position: absolute;
+                left: 0;
+                top: 0;
+                padding: 10px 20px;
+                text-shadow: 0px 0px 5px #0dcaf0;
+                color: #0d6efd;
+            }
+            .st-about-us .st-content-text .st-text-title {
+                font-size: 25px;
+            }
+            .st-about-us .st-content-text .st-text-description {
+                font-size: 15px;
+                text-indent: 2em;
+            }
+
+            .st-recruit {
+                position: relative;
+            }
+
+            .st-recruit .st-recruit-content {
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 5%;
+                color: white;
+                /* padding: 0 40px; */
+                text-shadow: 1px 2px 5px #0d6efd;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .st-recruit .st-recruit-content .st-recruit-line1 {
+                font-size: 30px;
+            }
+            .st-recruit .st-recruit-content .st-recruit-line2 {
+                font-size: 30px;
+            }
+            .st-recruit .st-recruit-content .st-recruit-line3 {
+                font-size: 20px;
+            }
+
+            .st-footer {
+                padding: 30px 0 20px;
+                position: relative;
+            }
+            .st-footer .st-content-text {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 30px;
+                bottom: 20px;
+                color: white;
+                padding-top: 30px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                text-align: center;
+            }
+            .st-footer .st-content-text .st-footer-name {
+                font-size: 25px;
+                font-weight: bold;
+            }
+            .st-footer .st-content-text .st-footer-address {
+                font-size: 15px;
+            }
+            .st-footer .st-content-text .st-footer-contact {
+                font-size: 15px;
+            }
+            .st-footer .st-content-text .st-footer-copyright {
+                font-size: 12px;
+            }
+
+            @media (min-width: 768px) {
+                .show {
+                    display: block !important;
+                }
+                .st-banner .banner-text {
+                    top: 20px;
+                    left: 20px;
+                }
+                .st-banner .banner-text .banner-name {
+                    font-size: 50px;
+                }
+                .st-banner .banner-text .banner-slogan {
+                    font-size: 30px;
+                }
+                .st-content {
+                    padding-top: 30px;
+                }
+                .st-about-us .st-content-text {
+                    padding: 20px 30px;
+                }
+                .st-about-us .st-content-text .st-text-title {
+                    font-size: 40px;
+                }
+                .st-about-us .st-content-text .st-text-description {
+                    font-size: 20px;
+                }
+
+                .st-footer {
+                    padding: 40px 0 20px;
+                    margin-left: -30px;
+                    margin-right: -30px;
+                }
+                .st-footer .st-content-text {
+                    top: 40px;
+                    bottom: 20px;
+                    padding-top: 45px;
+                }
+                .st-footer .st-content-text .st-footer-name {
+                    font-size: 40px;
+                }
+                .st-footer .st-content-text .st-footer-address {
+                    font-size: 25px;
+                }
+                .st-footer .st-content-text .st-footer-contact {
+                    font-size: 25px;
+                }
+                .st-footer .st-content-text .st-footer-copyright {
+                    font-size: 20px;
+                }
+            }
+            @media (min-width: 992px) {
+                .st-banner .banner-text .banner-name {
+                    font-size: 90px;
+                }
+                .st-banner .banner-text .banner-slogan {
+                    font-size: 50px;
+                }
+                .st-about-us .st-content-text .st-text-title {
+                    font-size: 25px;
+                }
+                .st-about-us .st-content-text .st-text-description {
+                    font-size: 15px;
+                }
+                .st-footer .st-content-text {
+                    padding-top: 80px;
+                }
+            }
+            @media (min-width: 1200px) {
+                .st-about-us .st-content-text .st-text-title {
+                    font-size: 30px;
+                }
+                .st-about-us .st-content-text .st-text-description {
+                    font-size: 20px;
+                }
+                .st-footer .st-content-text {
+                    padding-top: 150px;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <header class="st-header show">
+            <div class="st-header-content container">
+                <a href="/"> <img class="st-logo" src="./img/logo.jpeg" alt="" /></a>
+                <div class="st-link-group">
+                    <!-- <span class="st-btn-wrapper">
+                        <a href="" class="st-btn">LINKLINKLINKLINK1</a>
+                    </span>
+                    <span class="st-btn-wrapper">
+                        <a href="" class="st-btn">LINKLINKLINKLINK1</a>
+                    </span>
+                    <span class="st-btn-wrapper">
+                        <a href="" class="st-btn">LINKLINKLINKLINK1</a>
+                    </span>
+                    <span class="st-btn-wrapper">
+                        <a href="" class="st-btn">LINKLINKLINKLINK1</a>
+                    </span>
+                    <span class="st-btn-wrapper">
+                        <a href="" class="st-btn">LINKLINKLINKLINK1</a>
+                    </span> -->
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="st-banner">
+                <img src="./img/banner-1.jpeg" alt="" />
+                <div class="banner-text">
+                    <div class="banner-name">迅达出行</div>
+                    <div class="banner-slogan">TODO 给出行带来XXXXX</div>
+                </div>
+            </div>
+
+            <div class="st-content">
+                <div class="container">
+                    <div class="row g-4">
+                        <div class="col-12 col-lg-6 st-about-us">
+                            <img class="st-content__img" src="./img/content-2.jpg" alt="" />
+                            <div class="st-content-text">
+                                <div class="st-text-title">关于我们</div>
+                                <div class="st-text-description">
+                                    <div>迅达出行是江苏省首批全国性网约车平台，隶属于江苏泰高隆汽车科技有限公司。</div>
+                                    <div>
+                                        迅达出行紧扣城际拼车，打造细分市场核心优势，同时大力推行城内打车、接送机（站）、顺风车，以及公务用车、旅游专线、出租车、租车等业务，并与高德、携程等大型OTA平台广泛合作，加快平台的多元化发展和各业务之间的有效联动，全力打造“安全、舒适、便捷、规范、尊享”的出行服务产品，为司机创造“高收入、高保障、高地位”的从业环境。
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 st-recruit">
+                            <img class="st-content__img" src="./img/content-1.jpg" alt="" />
+                            <div class="st-recruit-content">
+                                <img class="st-flaming" src="./img/recruit.gif" alt="" />
+                                <div>
+                                    <div class="st-recruit-line1">迅达出行诚邀您加入</div>
+                                    <div class="st-recruit-line2">商务合作邮箱：</div>
+                                    <!-- <a class="st-recruit-line3" href="mailto:893230341@qq.com">893230341@qq.com</a> -->
+                                    <div class="st-recruit-line3">893230341@qq.com</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="st-footer">
+                        <img class="st-content__img" src="./img/footer.jpg" alt="" />
+                        <div class="st-content-text">
+                            <div>
+                                <div class="st-footer-name">江苏泰高隆汽车科技有限公司</div>
+                                <div class="st-footer-address">地址：江苏省无锡市锡山区友谊北路300号</div>
+                                <div class="st-footer-contact">
+                                    客服电话：
+                                    <a href="tel:0510-81008028">0510-81008028</a>
+                                </div>
+                            </div>
+                            <div class="st-footer-copyright">TODO XX ICP信息暂时没 XX</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
